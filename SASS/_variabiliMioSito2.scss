@@ -1,0 +1,42 @@
+$fontPrimo: 'Trebuchet MS', 'Gill Sans', 'Gill Sans MT';
+
+$bg_dark: rgba(220, 220, 220, 0.4);
+$bg_light: rgba(220, 220, 220, 0.8);
+
+$bg_shadow: rgba(0,0,0,1);
+
+$bg_mainPrimo: rgb(2, 25, 77);
+$bg_mainSecondo: rgba(255, 219, 88);
+$bg_mainTerzo: rgba(140, 140, 140);
+
+$color_Primo: rgb(16, 16, 184);
+$color_Secondo: #ffdb58;
+$color_Terzo: gray;
+
+$bg_hoverPrimo: #f9f9f9;
+
+$col_hoverPrimo: rgb(200, 200, 200);
+
+
+$color_textDark: black;
+$color_textlight: white;
+
+@mixin txtshadow($a, $b, $c) {
+    text-shadow: $a $a $b $c,
+                -$a $a $b $c,
+                -$a (-$a) $b $c,
+                $a (-$a) $b $c;
+
+}
+
+@mixin alignPadd($align, $verticalPad, $horizontalPad) {
+    text-align: $align;
+    padding: $verticalPad $horizontalPad;
+}
+
+@mixin flexbox($display, $flow, $justify, $items) {
+    display: $display;
+    flex-flow: $flow;
+    justify-content: $justify;
+    align-items: $items;
+}

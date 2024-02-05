@@ -1,0 +1,1066 @@
+@import "variabiliMioSito2";
+
+body {
+    margin:0px;
+    padding:0px;
+    font-family: $fontPrimo;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 2% 10%;
+    margin: 0;
+    margin-top: 10%;
+}
+
+
+/*Menu, testo in primo piano FULL STACK DEVELOPER e sfondo*/
+div#intro {
+    margin: 0px 0px 5% 0px;
+    aspect-ratio: 2/1;
+
+    #absolute {
+        position: absolute;
+        background: radial-gradient(circle at 50% 80%, transparent 20%, black 80%);
+        top: 0;
+        width: 100%;
+        aspect-ratio: 2/1;
+        @include flexbox(flex, column, space-between, center);
+
+        nav {
+            width: 70%;
+            z-index: 100;
+
+            #logo button {
+                height: 8%;
+                width: 5%;
+                position: absolute;
+                top: 3%;
+                left: 7%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: $color_textDark;
+                cursor: not-allowed;
+            }
+        
+            .showMenu {
+                @include flexbox(flex, row nowrap, space-around, center);
+                list-style: none;
+                margin: 0px;
+                padding: 1%;     
+
+                .mm {
+                    width: 25%;
+                    height: 2%;
+                    text-align: center;
+        
+                    .mame {
+                        font-size: 3vw;
+                        text-decoration: none;
+                        font-weight: bolder;
+                        color: $color_textlight;
+        
+                        &:hover {
+                            color: $color_Secondo;
+                            @include txtshadow (1px, 0, $color_textDark);
+                        }
+                    }
+                }
+            }
+        }
+    
+        div#text {
+            width: 100%;
+            margin: 1% 0% 5% 0%;
+            z-index: 10;
+            font-family: Helvetica, sans-serif;
+            
+            /*Intestazione e Barra del menu*/
+            #intestazione {
+                position: relative;
+                float: left;
+                width: 45%;
+                height: 90%;
+                text-align:right;
+                padding: 2%;
+
+                h1 {
+                    font-size: 7vw;
+                    color: $color_Secondo;
+
+                }
+            }
+
+            #titoli {
+                position: relative;
+                float: right;
+                width: 45%;
+                height: 90%;
+                text-align: left;
+                padding: 2%;
+                border-left: 10px solid $color_Secondo;
+
+                h2 {
+                    font-size: 7vw;
+                    color: $color_textlight;
+                    margin: 0;
+                    padding-top: 2%;
+                }
+            }
+        }
+    }
+   
+    #imgs  {
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size:100%;
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        margin: 0px auto;
+    }
+}
+
+
+/*Sections WEB DESIGN, BACK END e FRONT END in "Chi sono"*/
+#n1, #n3, #n5, #n7, #n9 {
+        @include flexbox(flex, row nowrap, space-around, center);
+}
+#n2, #n4, #n6, #n8, #n10 {
+        @include flexbox(flex, row-reverse nowrap, space-around, center);
+}
+.nAll {
+        div.paragrafi {
+            width: 65%;
+            align-self: stretch;
+            padding: 2%;
+            color: $color_textDark;
+            @include flexbox(flex, column, space-around, center);
+            
+            h3 {
+                margin: 2%;
+                text-align: center;
+                padding: 1%;
+                font-size: 8vw;
+                color: $color_Primo;
+            }
+    
+            p{
+                margin: 2%;
+                text-align: justify;
+                font-size: 2.2vw;
+                line-height: 130%;
+            }
+        }
+        
+        div.interno {
+            width: 35%;
+            align-self: stretch;
+            padding: 2%;
+            background: linear-gradient(to bottom, $bg_mainSecondo 40%, $color_Primo);
+            box-shadow: 1vw 1vw $color_Terzo;
+            border-radius: 1vw;
+    
+            .intImg {
+                height: 100%;
+                margin: 0 auto;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size:contain;
+                overflow: hidden;
+
+            }
+        }
+}
+
+
+/*Categorie "portfolio"*/
+#portfolio {
+    background: linear-gradient(to left, $bg_mainSecondo 20%, $bg_mainPrimo);
+
+    * {
+        display: flex;
+        flex-direction: column;
+    
+        .titCat {
+            height: 40%;
+    
+            h3 {
+                text-align: center;
+                font-size: 8vw;
+                color: $color_textlight;
+            }
+        }
+        
+        div.portfolio {
+            @include flexbox(flex, row nowrap, center, center);
+            padding: 5% 1%;
+            height: 40%;
+            
+            button {
+                text-align: center;
+                justify-content: center;
+                width: 4vw;
+                height: 4vw;
+                color: $color_Primo;
+                background-color: $color_textlight;
+                border: solid $color_Primo 2px;
+                border-radius: 30%;
+                box-shadow: 1vw 1vw $color_Terzo;
+                font-size: 3vw;
+                cursor: pointer;
+                outline: none;
+                transition: all 0.1s ease-in-out;
+    
+                &:hover {
+                    transform:scale(1.05);
+                }
+    
+                &:active {
+                    transform:scale(0.95);
+                }
+            }
+    
+            ul.cards {
+                @include flexbox(flex, row nowrap, center, center);
+                width: 80%;
+                padding: 3%;
+            
+                li {
+                    margin: 10px;
+                    box-shadow: 1vw 1vw $color_Terzo;
+                    border-radius: 1vw;
+                    background-color: $color_textlight;
+                    width: 100%;
+                    display: none;
+    
+                    .single_card {
+                        @include flexbox(flex, row nowrap, center, center);
+                        @include alignPadd(justify, 2%, 2%);
+                        
+                        img {
+                            padding: 2%;
+                            width: 10%;
+                            height: 10vw;
+                        }
+    
+                        h4 {
+                            padding: 2%;
+                            font-size: 3vw;
+                            @include txtshadow (1px, 0, $color_textDark);
+                            color: $color_textDark;
+                        }
+    
+                        p {
+                            width: 30%;
+                            padding: 2%;
+                            font-size: 1.5vw;
+                            color: $color_textDark;
+                        }
+    
+                        a {
+                            padding: 2%;
+                            font-size: 2vw
+                        }
+                    }
+                    
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                    &:nth-child(1){
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    /*Cards "portfolio_progetto"*/
+    ul.card1 {
+        @include flexbox(flex, row nowrap, space-evenly, stretch);
+        margin: 1%;
+        padding: 1%;
+
+        li {
+            @include flexbox(flex, column wrap, space-evenly, center);
+            @include alignPadd(justify, 1%, 1%);
+            width: 90%;
+            margin: 1%;
+            box-shadow: 5px 5px $color_Terzo;
+            border-radius: 10px;
+            background-color: $color_textlight;
+
+            #immagine {
+                width: 40%;
+                img {
+                    width: 100%;
+                }
+            }
+            
+            .riga {
+                @include flexbox(flex, column, space-evenly, center);
+                margin: 5px;
+                padding: 5px;
+                width: 100%;
+            }
+        }
+
+        h3 {
+            margin: 1%;
+            font-size: 3vw;
+        }
+
+        h4, h4 a, h5 {
+            margin: 5px;
+            padding: 5px;
+            font-size: 2vw;
+        }
+
+        p {
+            font-size: 1.3vw;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .infoextra {
+            @include flexbox(flex, row, space-between, start);
+            width: 100%;
+
+            #back {
+                background-color: $bg_mainSecondo;
+                color: $color_Primo;
+            }
+        }
+
+        .infoprogetto {
+            @include flexbox(flex, column, space-between, center);
+            width: 100%;
+        }
+    }
+}
+
+
+/*Section Percorso*/
+#miopercorso {
+
+    h3 {
+        margin: 2%;
+        text-align: center;
+        padding: 1%;
+        font-size: 8vw;
+        color: $color_Primo;
+    }
+    #percorso {
+        @include flexbox(flex, row nowrap, center, start);
+
+        .stepercorso {
+            margin: 1%;
+
+            h4 {
+                padding: 3%;
+                font-size: 1.6vw;
+                text-align: center;
+                line-height: 130%;
+            }
+
+            .icons {
+                @include flexbox(flex, column nowrap, center, center);
+
+                img {
+                    height: 8vw;
+                    padding: 1%;
+                    margin-top: 5%;
+
+                    &:hover {
+                        scale: 1.2;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+
+/*Form*/
+#form {
+    height: 120%;
+    margin: 0 auto;
+    margin-top: 10%;
+    padding-bottom: 5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    #formok {
+        @include flexbox(flex, column nowrap, center, center);
+        font-size: 8vw;
+        color: $color_textlight;
+        width: 80%;
+        height: 100%;
+        text-align: center;
+        margin: 0px auto;
+    }
+    
+    form {
+        @include flexbox(flex, column nowrap, space-between, center);
+        width: 100%;
+        height: 80%;
+
+        legend {
+            font-size: 8vw;
+            color: $color_textlight;
+            width: 80%;
+            margin: 3% auto;
+            @include alignPadd(center, 10px, 10px);
+        }
+
+        .corpo {
+            height: 100%;
+            width: 90%;
+            @include flexbox(flex, row nowrap, center, center);
+            margin: 20px auto;
+
+            .colonna {
+                flex:50%;
+                height: 100%;
+                padding: 5px;
+                border: none;
+                @include flexbox(flex, column nowrap, space-evenly, stretch);
+
+                & > :nth-child(n) {
+                    padding: 5px;
+                    margin: 5px 5px;
+                }
+            }
+
+            #prima {
+                margin-right: 2%;
+                text-align: center;
+
+                div input {
+                    transform: scale(1.5);
+                    
+                }
+                
+                div#spunta {
+                    @include flexbox(flex, row, center, center);
+                    height: 10%;
+                    label {
+                        font-size: 1.2vw;
+                    }
+                    input#privacy {
+                        width: 10%;
+                        height: 30%;
+                    }
+                }
+            }
+
+            #seconda {
+                text-align: center;
+                margin-left: 2%;
+
+                #tasti {
+                    display: flex;
+
+                    input {
+                        font-size: 2vw;
+                        color: $color_textlight;
+                        @include txtshadow (1px, 0, $color_textDark);
+                        background-color: $color_Secondo;
+                        padding: 10px;
+                        border-radius: 5px;
+                        border-top-right-radius: 10%;
+                        border-bottom-left-radius: 10%;
+                        width: 50%;
+
+                        &:hover {
+                            background-color: $color_Terzo;
+                            color: $color_Secondo;
+                        }
+                    }
+                }
+            }
+        }
+
+        input, textarea, option, select {
+            font-size:2vw;
+            font-weight: bolder;
+            color: $color_Primo;
+        }
+
+        ::placeholder {
+            font-size: 2vw;
+        }
+
+        label {
+            padding: 5px;
+            margin: 0px auto;
+            font-size: 3vw;
+            font-weight:bolder;
+            color: $color_Secondo;
+        }
+
+        #conta {
+            @include flexbox(flex, row nowrap, center,center);
+        }
+
+        #output {
+            font-size: 2vw;
+            color: $color_textlight;
+        }
+    }
+}
+
+
+/*FOOTER*/
+footer {
+    margin: 0;
+    @include flexbox(flex, row nowrap, space-evenly, center);
+    padding: 3% 0;
+    height:6vw;
+    background-color: $bg_mainPrimo;
+
+    p {
+        font-size: 2vw;
+        font-weight: bolder;
+        color: $color_textlight;
+        text-align: center;
+    }
+
+    .pie {
+        @include flexbox(flex, column nowrap, space-evenly, center);
+
+        p {
+            margin: 2% 0;
+        }
+
+        #cred {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        /*Informativa privacy*/
+        .hidden {display: none; }
+        .show {@include flexbox(flex, column nowrap, center, center);}
+
+        #pp {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        #policy {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 100;
+            font-size: 2vw;
+            width: 100%;
+            background-color: $bg_mainTerzo;
+            height: 50%;
+
+            #titolo {
+                font-size: 3vw;
+            }
+
+            #info {
+                background-color: $bg_mainPrimo;
+                width: 80%;
+                text-align: justify;
+                padding: 20px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+
+                p {
+                    width: 100%;
+                    font-size: 2vw;
+                }
+            }
+
+            #ok {
+                background-color: $bg_mainSecondo;
+                font-size: 2vw;
+                margin: 20% auto;
+
+                &:hover {
+                    color: $color_textlight;
+                    background-color: $bg_mainPrimo;
+                }
+            }
+
+        }
+        
+        #crediti {
+                position: fixed;
+                margin: 0 auto;
+                left: 0;
+                bottom: 0;
+                z-index: 100;
+                font-size: 2vw;
+                width: 100%;
+                background-color: $bg_mainTerzo;
+                height: 50%;
+
+                #titolo {
+                    font-size: 3vw;
+                }
+
+                #info {
+                    background-color: $bg_mainPrimo;
+                    width: 80%;
+                    text-align: justify;
+                    padding: 20px;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+
+                    p {
+                        width: 100%;
+                        font-size: 2vw;
+                    }
+                }
+
+                #chiudi {
+                    background-color: $bg_mainSecondo;
+                    font-size: 2vw;
+                    margin: 20% auto;
+
+                    &:hover {
+                        color: $color_textlight;
+                        background-color: $bg_mainPrimo;
+                    }
+                }
+
+        }
+    }
+
+    #links {
+        list-style: none;
+        @include flexbox(flex, row nowrap, space-evenly, center);
+        width: 30%;
+        height:max-content;
+        padding: 0px;
+
+        li {
+            padding: 5px;
+        }
+
+        img {
+            height: 4vw;
+        }
+    }
+    
+
+}
+
+
+/*Risoluzione tablet*/
+@media all and (max-width:800px) {
+
+    /*Form "contact"*/
+    #form {
+        height: max-content;
+
+        form {
+            height: 100%;
+        }
+
+        form legend {
+            padding-bottom: 20px;
+        }
+
+        form .corpo {
+            @include flexbox(flex, column nowrap, center, center);
+
+            
+            .colonna {
+                width: 100%;
+            }
+
+            #prima {
+                margin: 0px 0px 20px 0px;
+                
+                div#spunta {
+                    label {
+                        font-size: 2vw;
+                    }
+                    input#privacy {
+                        width: 25%;
+                        height: 30%;
+                    }
+                }
+            }
+
+            #seconda {
+
+                #tasti {
+                    input {
+                        font-size: 3vw;
+                    }
+                }
+                option {
+                    font-size: 2.5vw;
+                }
+                #commenti {
+                    height: 50%;
+                    font-size: 3vw;
+                }
+            }
+
+            label {
+                font-size: 4vw;
+            }
+
+            input, ::placeholder, select {
+                font-size: 3vw;
+            }
+        }
+    }
+}
+
+
+/*Risoluzione smartphone*/
+@media all and (max-width:600px) {
+
+    /*Sfondo*/
+    div#intro {
+        aspect-ratio: 1/1;
+        overflow-x: hidden;
+        #absolute {
+            aspect-ratio: 1/1;
+            overflow-x: hidden;
+            background: radial-gradient(circle at 50% 80%, transparent 20%, $bg_mainPrimo 80%);
+
+    /*Intestazione e barra del menu*/
+    nav {
+        background-color: $bg_mainPrimo;
+        opacity: 0.9;
+        position: fixed;
+        width: 100%;
+        padding-top: 2%;
+        @include flexbox(flex, column, start, center);
+          
+        #logo {
+            margin: 1% 0;
+            padding: 1%;
+            height: 40px;
+            width: 50px;
+
+                button {
+                    height: 100%;
+                    width: 100%;
+                    margin: 0;
+                    position:static;
+                    display: block;
+                }
+            
+        }
+        
+        .mainmenu {
+                display: none;
+            
+        }
+
+        .showMenu {
+            padding: 0;
+            flex-direction: column;
+            width: 100%;
+            border-bottom: 1vw solid $color_textDark;
+            
+            .mm {
+                width: 100%;
+                height: 100%;
+                padding: 3% 0;
+
+                &:hover {
+                    background-color: $bg_mainSecondo;
+                }
+
+                .mame {
+                    display: block;
+                    width: 100%;
+                    font-size: 6vw;
+
+                    &:hover {
+                        color: $color_textlight; 
+                    }
+                }
+            }
+        }
+    }
+
+
+            div#text {
+                @include flexbox(flex, column, center, center);
+                position: absolute;
+                bottom: 1%;
+                margin: 0;
+
+                #intestazione {
+                    float: inherit;
+                    width: 100%;
+                    height: 30%;
+                    text-align: center;
+                    padding: 1%;
+                }
+                #titoli {
+                    float: inherit;
+                    width: 70%;
+                    height: 50%;
+                    text-align: center;
+                    border-left: none;
+                    border-top: 5px solid $color_Secondo;
+                    padding: 2%;
+                }
+            }
+        }
+        #imgs {
+            background-size: cover;
+        }
+    }
+
+    /*Sections Chi sono*/
+    #n1, #n2, #n3, #n4, #n5, #n6, #n7, #n8, #n9, #n10 {
+        flex-flow: column;
+    }
+    .nAll {
+        div.paragrafi {
+            width: 85%;
+            margin: 0 auto;
+
+            p {
+                font-size: 4vw;
+            }
+        }
+        div.interno {
+            width: 80%;
+            margin: 0 auto;
+            height:30vw;
+        }
+    }
+
+    /*Section "portfolio"*/
+    #portfolio {
+        * {
+    
+            div.titCat {
+                height: 30%;
+            }
+    
+            div.portfolio {
+                height: 90%;
+                padding-top: 0;
+    
+                button {
+                    width: 8vw;
+                    height: 10vw;
+                    font-size: 5vw;
+                }
+    
+                ul.cards {
+        
+                    li {
+    
+                        .single_card {
+                            height: 80%;
+                            flex-direction: column;
+                            justify-content: space-around;
+    
+                            img {
+                                width: 40%;
+                                height: 30%;
+                            }
+    
+                            h4 {
+                                font-size: 4.5vw;
+                            }
+    
+                            p {
+                                font-size: 3.5vw;
+                                width: 90%;
+                            }
+    
+                            a {
+                                font-size: 4vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /*Cards "portfolio_progetto"*/
+        ul.card1 {
+            @include flexbox(flex, column nowrap, center, center);
+    
+            li {
+                flex-direction:row;
+                width: 90%;
+                h4, a {
+                    font-size: 4vw;
+                }
+                h5 {
+                    font-size: 3vw;
+                }
+                p {
+                    font-size: 2vw;
+                }
+                .riga {
+                    width: 40%;
+                    
+                }
+                .infoextra {
+                    width: 50%;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .infoprogetto {
+                    width: 50%;
+                }
+            }  
+            
+            li#second {
+                .infoextra {
+                    width: 50%;
+                    .riga {
+                        width: 100%;
+                        flex-direction: row;
+                        align-items: flex-start;
+                        h4, p {
+                            width: 50%;
+                            font-size: 3vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*Section Percorso*/
+    #miopercorso {
+
+        #percorso {
+            flex-direction: column;
+            margin: 5% auto;
+
+            .stepercorso {
+                margin-bottom: 8%;
+                h4 {
+                    font-size: 5vw;
+                    width: 90%;
+                    padding: 1%;
+                    margin: 5% auto;
+                }
+                .icons {
+                    flex-direction: row;
+
+                    img {
+                        height: 15vw;
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    /*Form*/
+    #form {
+        form .corpo {
+            #prima {
+                
+                div#spunta {
+                    label {
+                        font-size: 3vw;
+                    }
+                    input#privacy {
+                        width: 20%;
+                        height: 20%;
+                    }
+                }
+            }
+
+            #seconda {
+
+                #tasti {
+                    input {
+                        font-size: 4vw;
+                    }
+                }
+                option {
+                    font-size: 3vw;
+                }
+                #commenti {
+                    font-size: 4vw;
+                }
+            }
+
+            label {
+                font-size: 5vw;
+            }
+
+            input, ::placeholder, select {
+                font-size: 4vw;
+            }
+        }
+    }
+
+    /*Footer*/
+    footer {
+        flex-direction: column;
+        height: max-content;
+
+        p {
+            margin: 5px;
+            font-size: 4vw;
+        }
+
+        #links li a img {
+            height: 50px;
+        }
+
+        .pie {
+            #policy {
+        
+                #titolo {
+                    font-size: 5vw;
+                }
+        
+                #info {
+        
+                    p {
+                        font-size: 4vw;
+                    }
+                }
+        
+                #ok {
+                    font-size: 4vw;
+                }
+            }
+            
+            #crediti {
+                width: 100%;
+                height: 40%;
+        
+                #titolo {
+                    font-size: 5vw;
+                }
+        
+                #info {
+        
+                    p {
+                        font-size: 4vw;
+                    }
+                }
+        
+                #chiudi {
+                    font-size: 4vw;
+                }
+            }
+
+        }
+    }
+
+}
